@@ -3,11 +3,11 @@ package assignmentathira;
 public class ShopCount {
 
 	public static void main(String[] args) {
-		int peopleWithin = 40;
+		int peopleWithin = 50;
 		int maxPeopleAllowed = 50;
-		int peopleWaiting = 19;
-		int peopleLeft = 2;
-		while (peopleWithin < maxPeopleAllowed) {
+		int peopleWaiting = 2;
+		int peopleLeft =1 ;
+		while (peopleWithin-peopleLeft <maxPeopleAllowed && peopleWithin>=peopleLeft) {
 			int peopleCanEnter = maxPeopleAllowed - peopleWithin + peopleLeft;
 			if (peopleCanEnter >= peopleWaiting) {
 				peopleWithin = peopleWithin - peopleLeft + peopleWaiting;
@@ -15,11 +15,15 @@ public class ShopCount {
 			} else {
 				peopleWithin = peopleWithin + peopleCanEnter - peopleLeft;
 				System.out.println("People Within is :" + peopleWithin);
-			}
-
+				if (peopleWithin==maxPeopleAllowed) {
+					System.out.println("Maximum Capacity Reached");
+					break;
+					}
 		}
-		System.out.println("Maximum Capacity Reached");
+	
 	}
-
+		if(peopleWithin-peopleLeft>=maxPeopleAllowed) {
+			System.out.println("Maximum Capacity Reached");
+		}
 }
-		
+}		
