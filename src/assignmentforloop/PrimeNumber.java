@@ -11,7 +11,7 @@ public class PrimeNumber {
 		Scanner sc = new Scanner(System.in);
 		number = sc.nextInt();
 		int result = 0;
-		if (number == 1) {
+		if (number <= 1) {
 			System.out.println("Not A Prime Number");
 		}
 		if (number == 2) {
