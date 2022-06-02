@@ -14,7 +14,7 @@ public class SumNumbers {
 			System.out.println("Does user wants to continue entering number:True or False");
 			num = sc.nextDouble();
 			isUserEntering = sc.nextBoolean();// reassigning value with input obtained from console//
-			count = count + 1;
+			count++;
 
 		} while (isUserEntering);
 
