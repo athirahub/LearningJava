@@ -7,7 +7,7 @@ public class ListOfDays {
 
 	public static void main(String[] args) {
 
-		String[] daysInAWeek = { "5", "2", "3", "4", "5", "6", "7", "5" };
+		String[] daysInAWeek = { "5", "2", "3", "4", "5", "6", "7" };
 
 		System.out.println("Days in a week " + Arrays.toString(daysInAWeek));
 
