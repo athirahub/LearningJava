@@ -4,9 +4,8 @@ public class AmusementParkRide {
 	double height;
 	double weight;
 
-	boolean eligibleToRide(double actualHeight, double actualWeight) {
-		height = actualHeight;
-		weight = actualWeight;
+	boolean eligibleToRide() {
+		
 
 		if (height < 90 || height > 200) {
 			System.out.println("Not allowed to ride");
