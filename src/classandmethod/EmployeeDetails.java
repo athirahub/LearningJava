@@ -15,12 +15,10 @@ public class EmployeeDetails {
 		System.out.println("Enter the no of hours worked by employee in a week:");
 		Scanner sc = new Scanner(System.in);
 		double hours = sc.nextDouble();
-		double salaryWeekly = person1.weeklySalaryCalculate(hours);
-		if (hours> 0) {
-			System.out.println("Weekly Salary of employee is $ " + salaryWeekly);
+		person1.weeklySalaryCalculate(hours);
 		
 			
 		}
 
 	}
-}
+
