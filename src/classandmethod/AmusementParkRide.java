@@ -1,10 +1,9 @@
 package classandmethod;
 
 public class AmusementParkRide {
-	double height;
-	double weight;
+	
 
-	boolean eligibleToRide() {
+	boolean eligibleToRide(double height,double weight) {
 		
 
 		if (height < 90 || height > 200) {

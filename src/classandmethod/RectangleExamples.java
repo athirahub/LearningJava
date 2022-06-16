@@ -9,15 +9,13 @@ public class RectangleExamples {
 		Rectangle rectangle2 = new Rectangle();
 		rectangle2.length = 5;
 		rectangle2.breadth = 8;
-		double realLength = rectangle1.length;
-		double realBreadth = rectangle1.breadth;
-		double area = rectangle1.calculateArea(realLength, realBreadth);
+		
+		double area = rectangle1.calculateArea(rectangle1.length, rectangle1.breadth);
 		if (area>0) {
 		System.out.println("Area of rectangle1 is: " + area);
 		}
-		realLength = rectangle2.length;
-		realBreadth = rectangle2.breadth;
-		area = rectangle2.calculateArea(realLength, realBreadth);
+		
+		area = rectangle2.calculateArea(rectangle2.length, rectangle2.breadth);
 		if(area>0) {
 		System.out.println("Area of rectangle2 is: " + area);
 

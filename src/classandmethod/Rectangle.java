@@ -5,14 +5,13 @@ public class Rectangle {
 	double breadth;
 
 	double calculateArea(double actualLength, double actualBreadth) {
-		if (actualLength<=0||actualBreadth<=0) {//added to avoid invalid entry//
+		if (actualLength <= 0 || actualBreadth <= 0) {// added to avoid invalid entry//
 			System.out.println("Invalid entry");
 			return 0.0;
 		}
-			
-		length = actualLength;
-		breadth = actualBreadth;
-		double area = length * breadth;
+
+		
+		double area = actualLength * actualBreadth;
 		return area;
 	}
 

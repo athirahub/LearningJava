@@ -6,6 +6,7 @@ public class Employee {
 	double hourlyRate;
 
 	void weeklySalaryCalculate(double workedHours) {
+		double weeklySalary=0;
 		
 		
 		if (workedHours < 0) {//to rule out invalid hour entry//
@@ -15,14 +16,14 @@ public class Employee {
 			System.out.println("Employee hasnt worked ,so no salary");
 			
 		} else if (workedHours > 44) {//overtime pay if employee worked more than 44h//
-			double hoursWorked = workedHours;
-			double additionalHours = hoursWorked - 44;
-			hoursWorked = 44;
-			double weeklySalary = hoursWorked * hourlyRate + additionalHours * hourlyRate * 1.5;
+			
+			double additionalHours = workedHours - 44;
+			workedHours = 44;
+			 weeklySalary = workedHours * hourlyRate + additionalHours * hourlyRate * 1.5;
 			System.out.println("Weekly Salary of employee is :$ "+weeklySalary);
 		}else {
-		double hoursWorked = workedHours;
-		double weeklySalary = hoursWorked * hourlyRate;
+		
+		weeklySalary = workedHours * hourlyRate;
 		System.out.println("Weekly Salary of employee is :$ "+weeklySalary);
 
 	}
