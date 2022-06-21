@@ -7,11 +7,11 @@ public class LaptopTypes {
 		Laptop ideapad=new Laptop();
 		ideapad.laptopName="Lenovo";
 		ideapad.ramSize=8;
-		ideapad.processorType="3050e";
+		ideapad.processorType="IntelCorei7";
 		
 		Laptop stream14=new Laptop();
-		stream14.initialise("Hp", 4, "3020e");
-		Laptop fhd=new Laptop("Asus",8,"3700U");
+		stream14.initialise("Hp", 4, "IntelCorei5");
+		Laptop zenbook=new Laptop("Asus",8,"IntelCorei5");
 	}
 
 }

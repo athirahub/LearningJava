@@ -4,26 +4,26 @@ public class Book {
 	String writer;
 	String title;
 	int pageCount;
-	
-	Book(){
-		
+
+	Book() {
+
 	}
-	
-	public Book(String author,String name,int pages) {
-		writer=author;
-		title=name;
-		pageCount=pages;
+
+	public Book(String author, String name, int pages) {
+		writer = author;
+		title = name;
+		pageCount = pages;
 	}
+
 	String getAuthor() {
-		String narrator=writer;
-		return narrator;
+		return writer;
 	}
+
 	String getName() {
-		String bookName=title;
-		return bookName;
+		return title;
 	}
+
 	int getPages() {
-		int pagenum=pageCount;
-		return pagenum;
+		return pageCount;
 	}
 }
