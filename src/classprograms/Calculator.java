@@ -1,36 +1,21 @@
 package classprograms;
 
 public class Calculator {
-	double firstNumber;
-	double secondNumber;
-	
-	Calculator(){
-		
+
+	double addition(double firstNumber, double secondNumber) {
+		return firstNumber + secondNumber;
 	}
-	
-	Calculator(double num1,double num2){
-		firstNumber=num1;
-		secondNumber=num2;
+
+	double substraction(double firstNumber, double secondNumber) {
+		return firstNumber - secondNumber;
 	}
-	
-	double addition() {
-		double result=firstNumber+secondNumber;
-		return result ;
+
+	double multiplication(double firstNumber, double secondNumber) {
+		return firstNumber * secondNumber;
 	}
-	double substraction() 
-	{
-		double result=firstNumber-secondNumber;
-		return result;
+
+	double division(double firstNumber, double secondNumber) {
+		return firstNumber / secondNumber;
 	}
-	
-	double multiplication() {
-		double result=firstNumber*secondNumber;
-		return result;
-	}
-	double division() {
-		double result=firstNumber/secondNumber;
-		return result;
-	}
-	
 
 }
