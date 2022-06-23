@@ -1,5 +1,7 @@
 package classprograms;
 
+import java.util.Arrays;
+
 public class FinalInvoice {
 
 	public static void main(String[] args) {
@@ -14,9 +16,14 @@ public class FinalInvoice {
 		Product curd = new Product("curd", 3, "plain");
 		Product cream = new Product("cream", 2, "whipped");
 		Product rice = new Product("rice", 20, "brown");
-
+		
+		
+		Product[]productList= {milk,bread,chicken,egg,banana,orange,cheese,curd,cream,rice};
+		
+		
 		Invoice newinvoice = new Invoice();
-		newinvoice.generateInvoice(banana, 5);
+		double []quantity= {5,4,3,2};
+		newinvoice.generateInvoice(productList, quantity);
 
 	}
 
