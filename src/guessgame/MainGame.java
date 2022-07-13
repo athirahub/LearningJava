@@ -10,13 +10,19 @@ public class MainGame {
 		Scanner sc=new Scanner(System.in);
 		movies.displaymovienames();
 		movies.displaytitle();
-		int counter;
+		int counter=0;
 		do {
 		System.out.println("\n"+"Guess a letter:");
-		 counter=movies.guessgameplay(sc.next());
+		String Selectedletter=sc.next();
+		if(Selectedletter.length()==1) {
+		 counter=movies.guessgameplay(Selectedletter);
 		 if(counter>=200) {
 			 break;
 		 }
+		}else {
+			System.out.println("Invalid entry ,Only can enter 1 letter at a time ");
+			
+		}
 		
 		
 	     }while(counter<10&&!(movies.hasGuessedRight()));
