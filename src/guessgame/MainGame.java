@@ -14,13 +14,15 @@ public class MainGame {
 		do {
 		System.out.println("\n"+"Guess a letter:");
 		String Selectedletter=sc.next();
-		if(Selectedletter.length()==1) {
+		Selectedletter=Selectedletter.toLowerCase();
+				
+		if(Selectedletter.length()==1&&!(Selectedletter.chars().allMatch( Character::isDigit ))) {
 		 counter=movies.guessgameplay(Selectedletter);
 		 if(counter>=200) {
 			 break;
 		 }
 		}else {
-			System.out.println("Invalid entry ,Only can enter 1 letter at a time ");
+			System.out.println("Invalid entry ,Valid input 1 letter at a time ");
 			
 		}
 		
