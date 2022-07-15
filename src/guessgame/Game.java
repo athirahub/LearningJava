@@ -16,7 +16,7 @@ public class Game {
 	int noTries = 0;
 	char[] characters;
 	String[] value;
-	String[] enteredletter = new String[10];// to store incorrectly enterd letters//
+	char[] enteredletter = new char[10];// to store incorrectly enterd letters//
 	boolean hasalreadyentered;
 
 	public Game() {
@@ -59,6 +59,7 @@ public class Game {
 
 			}
 		}
+
 		System.out.println("\n" + "asamak :GuessTheMovie asser$ Java GuessTheMovie");
 		System.out.print("You are guessing:");
 		System.out.print(Arrays.toString(value).replace("[", "").replace("]", "").replace(",", " "));
@@ -95,9 +96,18 @@ public class Game {
 
 		// if the letter guessed is wrong that ch stored as entered letter and noTries
 		// incremented//
+		boolean isrepeat = false;
 		if (lettermatch == 0) {
-			enteredletter[noTries] = ch;
-			noTries++;
+			for (int z = 0; z < enteredletter.length; z++) {
+				if (enteredletter[z] == ch.charAt(0)) {
+					isrepeat = true;
+				}
+
+			}
+			if (!isrepeat) {
+				enteredletter[noTries] = ch.charAt(0);
+				noTries++;
+			}
 		}
 
 		// if user hasnt completed 10 incorrect tries then value array will be
@@ -108,7 +118,7 @@ public class Game {
 			System.out.print("\nYou have guessed (" + noTries + ") wrong letters: ");
 			if (noTries != 0) {
 				System.out.print(Arrays.toString(enteredletter).replace("[", "").replace("]", "").replace(",", " ")
-						.replace("null", " "));
+						.replace("null", " ").trim());
 
 			}
 		}

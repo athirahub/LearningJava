@@ -30,7 +30,7 @@ public class MainGame {
 
 		if (!movies.hasGuessedRight()) {
 			System.out.println("Ooops! you lost.");
-		}else {
+		} else {
 			System.out.println("You win!");
 			System.out.println(" You have guessed " + movies.getSelectmovie() + " correctly");
 
