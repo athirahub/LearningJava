@@ -16,7 +16,7 @@ public class Game {
 	int noTries = 0;
 	char[] characters;
 	String[] value;
-	String[] enteredletter = new String[10];//to store incorrectly enterd letters//
+	String[] enteredletter = new String[10];// to store incorrectly enterd letters//
 	boolean hasalreadyentered;
 
 	public Game() {
@@ -30,7 +30,7 @@ public class Game {
 		Scanner scan = new Scanner(file);
 		for (int i = 0; i < 25; i++) {
 			moviename[i] = scan.nextLine();
-			System.out.println(moviename[i]);
+
 		}
 	}
 
@@ -48,7 +48,7 @@ public class Game {
 			sb.append(mystring[i]);
 		}
 		selectmovie = sb.toString();
-		 System.out.println(selectmovie);
+
 		// converting string to char array and printing_ for every character//populating
 		// value array with underscores//
 		characters = selectmovie.toCharArray();
@@ -72,42 +72,37 @@ public class Game {
 		// checking character array to see if there is an element with value of
 		// ch(converting ch to char//
 		// if matched replace underscore in that index position of value array with ch//
-		//using for loop checking whether entered letter has already been replaced before if then it will be considered wrong ans//
-		hasalreadyentered=false;
-		for(int s=0;s<selectmovie.length();s++) {
-			if(value[s].equals(ch)) {
-				hasalreadyentered=true;
+		// using for loop checking whether entered letter has already been replaced
+		// before if then it will be considered wrong ans//
+		hasalreadyentered = false;
+		for (int s = 0; s < selectmovie.length(); s++) {
+			if (value[s].equals(ch)) {
+				hasalreadyentered = true;
 			}
 		}
 		for (int k = 0; k < selectmovie.length(); k++) {
 			if ((characters[k] != ch.charAt(0))) {
 
 			} else {
-				if(!hasalreadyentered){
-				value[k] = ch;
-				lettermatch++;
+				if (!hasalreadyentered) {
+					value[k] = ch;
+					lettermatch++;
 				}
-			
-		
-			
+			}
 		}
-		}
-		
+
 		// checking if user has guessed movie completely,if true,return to main class//
-		if (hasGuessedRight()) {
-			return 200;
-		}
+
 		// if the letter guessed is wrong that ch stored as entered letter and noTries
 		// incremented//
 		if (lettermatch == 0) {
 			enteredletter[noTries] = ch;
-
 			noTries++;
 		}
 
 		// if user hasnt completed 10 incorrect tries then value array will be
 		// printed,no of wrong letters enterd and their list shown //
-		if (noTries < 10) {
+		if (noTries < 10 && !hasGuessedRight()) {
 
 			System.out.println("\n" + Arrays.toString(value).replace("[", "").replace("]", "").replace(",", " "));
 			System.out.print("\nYou have guessed (" + noTries + ") wrong letters: ");
@@ -120,8 +115,6 @@ public class Game {
 		lettermatch = 0;
 		return noTries;
 	}
-	
-	
 
 	public boolean hasGuessedRight() {
 //returns true only if value array has been completely populated with characters instead of underscores/all letters guessed right//
@@ -131,10 +124,15 @@ public class Game {
 				return false;
 			}
 		}
-		System.out.println("You win!");
-		System.out.println(" You have guessed " + selectmovie + " correctly");
-		System.out.println("asamak :GuessTheMovie asser$");
 		return true;
+	}
+
+	public String getSelectmovie() {
+		return selectmovie;
+	}
+
+	public void setSelectmovie(String selectmovie) {
+		this.selectmovie = selectmovie;
 	}
 
 }
