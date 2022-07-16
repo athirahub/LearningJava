@@ -30,7 +30,6 @@ public class Game {
 		Scanner scan = new Scanner(file);
 		for (int i = 0; i < 25; i++) {
 			moviename[i] = scan.nextLine();
-
 		}
 	}
 
@@ -53,11 +52,9 @@ public class Game {
 		// value array with underscores//
 		characters = selectmovie.toCharArray();
 		value = new String[selectmovie.length()];
-		for (int k = 0; k < selectmovie.length(); k++) {
-			if (characters[k] != ' ') {
-				value[k] = "_";
 
-			}
+		for (int k = 0; k < selectmovie.length(); k++) {
+			value[k] = "_";
 		}
 
 		System.out.println("\n" + "asamak :GuessTheMovie asser$ Java GuessTheMovie");
@@ -73,14 +70,15 @@ public class Game {
 		// checking character array to see if there is an element with value of
 		// ch(converting ch to char//
 		// if matched replace underscore in that index position of value array with ch//
-		// using for loop checking whether entered letter has already been replaced
+		//  checking whether entered letter has already been replaced
 		// before if then it will be considered wrong ans//
 		hasalreadyentered = false;
-		for (int s = 0; s < selectmovie.length(); s++) {
-			if (value[s].equals(ch)) {
-				hasalreadyentered = true;
-			}
+		if (Arrays.toString(value).contains(ch)) {
+			hasalreadyentered = true;
 		}
+		
+		
+
 		for (int k = 0; k < selectmovie.length(); k++) {
 			if ((characters[k] != ch.charAt(0))) {
 
@@ -98,12 +96,10 @@ public class Game {
 		// incremented//
 		boolean isrepeat = false;
 		if (lettermatch == 0) {
-			for (int z = 0; z < enteredletter.length; z++) {
-				if (enteredletter[z] == ch.charAt(0)) {
-					isrepeat = true;
-				}
-
+			if (Arrays.toString(enteredletter).contains(ch)) {
+				isrepeat = true;
 			}
+
 			if (!isrepeat) {
 				enteredletter[noTries] = ch.charAt(0);
 				noTries++;
@@ -128,21 +124,15 @@ public class Game {
 
 	public boolean hasGuessedRight() {
 //returns true only if value array has been completely populated with characters instead of underscores/all letters guessed right//
-		for (int j = 0; j < selectmovie.length(); j++) {
-			if (value[j] != "_") {
-			} else {
-				return false;
-			}
+		if (Arrays.toString(value).contains("_")) {
+			return false;
+		} else {
+			return true;
 		}
-		return true;
 	}
 
 	public String getSelectmovie() {
 		return selectmovie;
-	}
-
-	public void setSelectmovie(String selectmovie) {
-		this.selectmovie = selectmovie;
 	}
 
 }
