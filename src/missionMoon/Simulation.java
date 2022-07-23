@@ -16,46 +16,45 @@ public class Simulation {
 	int i = 0;
 	boolean canAdd;
 
-	public ArrayList loadItems() throws FileNotFoundException {
+	public ArrayList<Item> loadItems() throws FileNotFoundException {
 		Scanner sc = new Scanner(new File("C:/Users/my pc/Desktop/ItemList.txt"));
+		ArrayList<Item> itemlist = new ArrayList<Item>();
 		while (sc.hasNext()) {
 
 			readLine = sc.nextLine().split("=");
 			itemname[i] = readLine[0];
 			weight[i] = Integer.valueOf(readLine[1]);
+			itemlist.add(new Item(itemname[i], weight[i]));
 			i++;
 		}
-		ArrayList<Item> itemlist = new ArrayList<Item>();
-		for (int k = 0; k < itemname.length; k++) {
-			itemlist.add(new Item(itemname[k], weight[k]));
-		}
 
+		// System.out.println(itemlist);
 		return itemlist;
 	}
 
-	public ArrayList loadU1(ArrayList itemList) {
-		ArrayList<R1> listR1 = new ArrayList<R1>();
+	public ArrayList<Rocket> loadU1(ArrayList<Item> itemList) {
+		ArrayList<Rocket> listR1 = new ArrayList<Rocket>();
 		int i = 0;
 		int k = 0;
 		do {
 			listR1.add(new R1());
 			do {
 
-				listR1.get(k).carry((Item) itemList.get(i));
+				listR1.get(k).carry(itemList.get(i));
 				i++;
 				if (i >= 15) {
 					break;
 				}
 
-			} while (listR1.get(k).canCarry((Item) itemList.get(i)));
+			} while (listR1.get(k).canCarry(itemList.get(i)));
 			k++;
 		} while (i < 15);
 		return listR1;
 
 	}
 
-	public ArrayList loadU2(ArrayList itemList) {
-		ArrayList<R2> listR2 = new ArrayList<R2>();
+	public ArrayList<Rocket> loadU2(ArrayList<Item> itemList) {
+		ArrayList<Rocket> listR2 = new ArrayList<Rocket>();
 		int i = 0;
 		int k = 0;
 
@@ -63,35 +62,52 @@ public class Simulation {
 			listR2.add(new R2());
 			do {
 
-				listR2.get(k).carry((Item) itemList.get(i));
+				listR2.get(k).carry(itemList.get(i));
 				i++;
 				if (i >= 15) {
 					break;
 				}
 
-			} while (listR2.get(k).canCarry((Item) itemList.get(i)));
+			} while (listR2.get(k).canCarry(itemList.get(i)));
 			k++;
 		} while (i < 15);
 
 		return listR2;
 	}
 
-	public void runSimulation(ArrayList list) {
+	public void runSimulation(ArrayList<Rocket> list) {
 		int totalBudget = 0;
 		int i = 0;
-		Rocket rockets;
-		do {
-			do {
-				rockets = (Rocket) list.get(i);
-				totalBudget = rockets.costInMillion + totalBudget;
+		while(i<list.size()) {
+			if(!(list.get(i).launch())) {
+				totalBudget=list.get(i).costInMillion + totalBudget;
+				list.get(i).launch();
+			}else {
+				totalBudget=list.get(i).costInMillion + totalBudget;
+				if(!list.get(i).land()) {
+					list.get(i).launch();
+				}else {
+					
+					i++;
+					if(i<list.size()) {
+					list.get(i).launch();
+				}
+			}
+		}
+		}
 
-			} while (!(rockets.launch() && rockets.land()));
-			i++;
-		} while (i < list.size());
+//		do {
+//			do {
+//
+//				totalBudget = list.get(i).costInMillion + totalBudget;
+//
+//			} while (!(list.get(i).launch() && list.get(i).land()));
+//			i++;
+//		} while (i < list.size());
 		if (list.get(0) instanceof R1) {
-			System.out.println("Total cost of  in R1 fleet, phase 1:${" + totalBudget + "}");
+			System.out.println("Total cost for R1 fleet, phase 1:${" + totalBudget + " million}");
 		} else {
-			System.out.println("Total cost of  in R2 fleet, phase 1:${" + totalBudget + "}");
+			System.out.println("Total cost for R2 fleet, phase 1:${" + totalBudget + " million}");
 		}
 	}
 }

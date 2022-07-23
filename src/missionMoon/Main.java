@@ -7,15 +7,15 @@ public class Main {
 
 	public static void main(String[] args) {
 		Simulation mission = new Simulation();
-		ArrayList listOfItems = null;
+		ArrayList<Item>itemlist = new ArrayList<Item>();
 		try {
-			listOfItems = mission.loadItems();
+			itemlist= mission.loadItems();
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		ArrayList R1fleet = mission.loadU1(listOfItems);
-		ArrayList R2fleet = mission.loadU2(listOfItems);
+		ArrayList<Rocket>R1fleet =mission.loadU1(itemlist);
+		ArrayList<Rocket>R2fleet= mission.loadU2(itemlist);
 		mission.runSimulation(R1fleet);
 		mission.runSimulation(R2fleet);
 	}
